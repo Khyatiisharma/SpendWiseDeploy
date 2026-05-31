@@ -4,13 +4,14 @@ phases:
   install:
     commands:
       - cd client
-      - npm install
+      - npm install --legacy-peer-deps
 
   build:
     commands:
+      - cd client
       - npm run build
 
 artifacts:
+  base-directory: client/dist
   files:
     - '**/*'
-  base-directory: client/dist
