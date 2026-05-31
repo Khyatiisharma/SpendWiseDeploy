@@ -1,0 +1,17 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const transaction_controller_1 = require("../controllers/transaction.controller");
+const cloudinary_config_1 = require("../config/cloudinary.config");
+const transactionRoutes = (0, express_1.Router)();
+transactionRoutes.post("/create", transaction_controller_1.createTransactionController);
+transactionRoutes.post("/scan-receipt", cloudinary_config_1.receiptUpload.single("receipt"), transaction_controller_1.scanReceiptController);
+transactionRoutes.post("/bulk-transaction", transaction_controller_1.bulkTransactionController);
+transactionRoutes.put("/duplicate/:id", transaction_controller_1.duplicateTransactionController);
+transactionRoutes.put("/update/:id", transaction_controller_1.updateTransactionController);
+transactionRoutes.get("/all", transaction_controller_1.getAllTransactionController);
+transactionRoutes.get("/ai-suggestions", transaction_controller_1.getAiTransactionSuggestionsController);
+transactionRoutes.get("/:id", transaction_controller_1.getTransactionByIdController);
+transactionRoutes.delete("/delete/:id", transaction_controller_1.deleteTransactionController);
+transactionRoutes.delete("/bulk-delete", transaction_controller_1.bulkDeleteTransactionController);
+exports.default = transactionRoutes;
