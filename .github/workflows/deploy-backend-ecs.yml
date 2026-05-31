@@ -14,11 +14,23 @@ permissions:
   contents: read
 
 env:
-  AWS_REGION: ${{ vars.AWS_REGION }}
-  ECR_REPOSITORY: ${{ vars.ECR_REPOSITORY }}
-  ECS_CLUSTER: ${{ vars.ECS_CLUSTER }}
-  ECS_SERVICE: ${{ vars.ECS_SERVICE }}
-  ECS_TASK_DEFINITION: aws/backend-task-definition.json
+  # AWS_REGION: us-east-1
+  # ECR_REPOSITORY: ${{ vars.ECR_REPOSITORY }}
+  # ECS_CLUSTER: ${{ vars.ECS_CLUSTER }}
+  # ECS_SERVICE: ${{ vars.ECS_SERVICE }}
+  # ECS_TASK_DEFINITION: aws/backend-task-definition.json
+  # ECS_CONTAINER_NAME: spendwise-backend
+  
+  AWS_REGION: us-east-1
+
+  ECR_REPOSITORY: spendwise-backend
+
+  ECS_CLUSTER: SpendWiseCluster
+
+  ECS_SERVICE: spendwise-backend-service
+
+  ECS_TASK_DEFINITION: spendwise-backend
+
   ECS_CONTAINER_NAME: spendwise-backend
 
 jobs:
