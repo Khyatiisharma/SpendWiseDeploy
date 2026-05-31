@@ -8,7 +8,7 @@ phases:
 
   build:
     commands:
-      - cd client
+      # - cd client
       - npm run build
 
 artifacts:
